@@ -5,6 +5,7 @@ const bot = new Bot({
 });
 
 bot.on('message', async (message) => {
+  console.log("test");
   const date = new Date();
   const text = `La date d'aujourd'hui est ${date.toLocaleDateString()}.`;
   await bot.sendMessage(message.chat.id, text);
