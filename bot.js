@@ -1,15 +1,12 @@
-import { Bot } from '@botfather/telegram-bot';
+const TelegramBot = require('node-telegram-bot-api');
 
-const bot = new Bot({
-  token: '6780865311:AAFYexE4dRHM1vujBvSXeRyHv8pcJ-JocgI',
+const bot = new TelegramBot({
+  token: "6780865311:AAFYexE4dRHM1vujBvSXeRyHv8pcJ-JocgI",
 });
 
-bot.on('message', async (message) => {
-  console.log("test");
+bot.on("message", async (message) => {
   const date = new Date();
-  const text = `La date d'aujourd'hui est ${date.toLocaleDateString()}.`;
-  await bot.sendMessage(message.chat.id, text);
+  const messageText = `La date d'aujourd'hui est le ${date.toLocaleDateString()}.`;
+
+  bot.sendMessage(message.chat.id, messageText);
 });
-
-bot.start();
-
